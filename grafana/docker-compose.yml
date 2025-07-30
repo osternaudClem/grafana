@@ -1,0 +1,12 @@
+services:
+  grafana:
+    image: grafana/grafana-oss:latest
+    ports:
+      - "6060:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+    volumes:
+      - ./dashboards:/var/lib/grafana/dashboards
+      - ./provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./provisioning/datasources:/etc/grafana/provisioning/datasources

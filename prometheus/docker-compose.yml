@@ -4,6 +4,6 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - ./config:/etc/prometheus
+      - ./config:/etc/prometheus:ro
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"

@@ -4,9 +4,6 @@ services:
     ports:
       - "9090:9090"
     volumes:
-      - type: bind
-        source: ./config/test.yml
-        target: /etc/prometheus/prometheus.yml
-        read_only: true
+      - ./config:/etc/prometheus
     command:
       - "--config.file=/etc/prometheus/prometheus.yml"
